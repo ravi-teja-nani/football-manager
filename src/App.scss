@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+body {
+  margin: 0;
+  font-family: "Poppins";
+}
+p {
+  margin: 0;
+}
+:root {
+  --primary-yellow: #fea013;
+  --primary-orange: #ba4a0c;
+  --secondary-yellow: #69563a;
+}
+.root-app {
+  display: flex;
+}
+.MuiButton-root {
+  text-transform: none !important;
+  padding: 12px 20px 11px 20px !important;
+  height: 44px !important;
+  border-radius: 8px !important;
+  font-family: "Poppins";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+.primary-button-wrapper {
+  background-color: var(--primary-yellow) !important;
+  &:hover {
+    background-color: var(--primary-orange) !important;
+  }
+}
+.navigation-root {
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  padding: 28px 0px;
+  align-items: center;
+  background-color: #111111;
+  height: 100vh;
+  .nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    .nav-item {
+      svg {
+        color: var(--secondary-yellow);
+      }
+      &.nav-item-active {
+        svg {
+          color: var(--primary-yellow);
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          margin-left: -2px;
+          margin-top: 19px;
+          width: 4px;
+          height: 4px;
+          border-radius: 100%;
+          background-color: var(--primary-yellow);
+        }
+      }
+    }
+  }
+}
+
+.dashboard-root {
+  padding: 38px;
+  width: 100%;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title-box {
+      .label {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 18px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: var(--primary-yellow);
+      }
+      .title-input {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        height: 34px;
+        svg {
+          color: #fff;
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+    .search {
+      .search-input {
+        margin-right: 10px;
+        .MuiInputBase-root {
+          color: #999999;
+          border: 1px solid #494949;
+          border-radius: 8px;
+          height: 44px;
+          width: 248px;
+          font-size: 14px;
+        }
+
+        svg {
+          color: #999999;
+        }
+      }
+    }
+  }
+}
+
+.import-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2d2d2d;
+  width: 61%;
+  height: 484px;
+  border-radius: 8px;
+  outline: none;
+  padding: 25px;
+  hr {
+    border-color: #81737359;
+  }
+  .import-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .title {
+      color: #f8f8f8;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 27px;
+      letter-spacing: 0px;
+    }
+    svg {
+      color: #f8f8f8;
+    }
+    .import-close {
+      cursor: pointer;
+    }
+  }
+  .select {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    height: 44px;
+    border-radius: 8px;
+    border: 1px solid #494949;
+    margin-top: 8px;
+    &.has-error {
+      border-color: #d23131 !important;
+    }
+  }
+  .roster-file {
+    font-family: Poppins;
+    color: #f8f8f8;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .file-name {
+    color: #494949;
+    margin-left: 12px;
+    margin-right: 30px;
+  }
+  .select-file-button {
+    color: #cbcbcb;
+    border-color: #494949;
+    &.has-error {
+      border-color: #d23131 !important;
+    }
+  }
+  .import-helper-text {
+    color: #494949;
+    margin-top: 10px;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    &.error-helper-text {
+      color: #d23131;
+      font-weight: 500;
+    }
+  }
+  .missing-fileds {
+    color: #cbcbcb;
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+  .import-modal-footer {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    .Mui-disabled {
+      color: #707070 !important;
+    }
+    .MuiButton-contained {
+      background-color: var(--primary-yellow) !important;
+      &:hover {
+        background-color: var(--primary-orange) !important;
+      }
+    }
+  }
+  .import-data-button {
+    margin-right: 46px;
+  }
+  .fileSummaryHead {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #cbcbcb;
+    margin-top: 24px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    color: #cbcbcb;
+  }
+  td, th {
+    text-align: left;
+    padding: 8px 8px 8px 0px;
+  }
+  th {
+    font-weight: 400;
+  }
+  td{
+   font-weight: 600;  
+  }
+}
