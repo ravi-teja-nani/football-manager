@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import Papa from "papaparse";
 import PropTypes from 'prop-types';
+import { NAV_ITEMS } from '../../constants'
 
 const VisuallyHiddenInput = styled("input")({
     clip: "rect(0 0 0 0)",
@@ -31,7 +32,7 @@ const isEmpty = (record) => {
 };
 const NO_FILE_SELECTED = "No file selected";
 
-const DashBoardHeader = ({ playersData, setPlayersData, setPlayerTableImport, searchString, setSearchString, setFilteredPlayersData }) => {
+const DashBoardHeader = ({ playersData, setPlayersData, setPlayerTableImport, searchString, setSearchString, setFilteredPlayersData, activeNavItem }) => {
     const [initailRosterEdit, setInitialRosterEdit] = useState(false);
     const [mouseOverTitle, setMouseOverTitle] = useState(false);
     const [importModal, setImportModal] = useState(false);
@@ -103,46 +104,46 @@ const DashBoardHeader = ({ playersData, setPlayersData, setPlayerTableImport, se
                 <div className="fileSummaryHead">File Summary</div>
                 <table className="summary-table">
                     <thead>
-                    <tr>
-                        <th>Total Players</th>
-                        <th>Goalkeepers</th>
-                        <th>Defenders</th>
-                        <th>Midfielders</th>
-                        <th>Forwards</th>
-                    </tr>
+                        <tr>
+                            <th>Total Players</th>
+                            <th>Goalkeepers</th>
+                            <th>Defenders</th>
+                            <th>Midfielders</th>
+                            <th>Forwards</th>
+                        </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>{rosterData.length}</td>
-                        <td>
-                            {
-                                rosterData.filter((row) => {
-                                    return row.Position === "Goalkeeper";
-                                }).length
-                            }
-                        </td>
-                        <td>
-                            {
-                                rosterData.filter((row) => {
-                                    return row.Position === "Defender";
-                                }).length
-                            }
-                        </td>
-                        <td>
-                            {
-                                rosterData.filter((row) => {
-                                    return row.Position === "Midfielder";
-                                }).length
-                            }
-                        </td>
-                        <td>
-                            {
-                                rosterData.filter((row) => {
-                                    return row.Position === "Forward";
-                                }).length
-                            }
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>{rosterData.length}</td>
+                            <td>
+                                {
+                                    rosterData.filter((row) => {
+                                        return row.Position === "Goalkeeper";
+                                    }).length
+                                }
+                            </td>
+                            <td>
+                                {
+                                    rosterData.filter((row) => {
+                                        return row.Position === "Defender";
+                                    }).length
+                                }
+                            </td>
+                            <td>
+                                {
+                                    rosterData.filter((row) => {
+                                        return row.Position === "Midfielder";
+                                    }).length
+                                }
+                            </td>
+                            <td>
+                                {
+                                    rosterData.filter((row) => {
+                                        return row.Position === "Forward";
+                                    }).length
+                                }
+                            </td>
+                        </tr>
                     </tbody>
 
                 </table>
@@ -180,7 +181,7 @@ const DashBoardHeader = ({ playersData, setPlayersData, setPlayerTableImport, se
                         )}
                     </div>
                 </div>
-                <div className="search">
+                {(activeNavItem === NAV_ITEMS.MENU) && <div className="search">
                     <TextField
                         className="search-input"
                         placeholder="Find Player"
@@ -190,14 +191,14 @@ const DashBoardHeader = ({ playersData, setPlayersData, setPlayerTableImport, se
                                     <SearchIcon />
                                 </InputAdornment>
                             ),
-                            endAdornment: ( 
+                            endAdornment: (
                                 searchString && <InputAdornment position="end">
                                     <CloseIcon className="clear-search" onClick={() => setSearchString('')} />
                                 </InputAdornment>
                             ),
                         }}
-                    value={searchString}
-                    onChange={(e) => setSearchString(e.target.value)}
+                        value={searchString}
+                        onChange={(e) => setSearchString(e.target.value)}
                     />
                     <Button
                         className="button-wrapper primary-button-wrapper"
@@ -206,7 +207,8 @@ const DashBoardHeader = ({ playersData, setPlayersData, setPlayerTableImport, se
                     >
                         {playersData?.length ? 'Re-Import Team' : 'Import Team'}
                     </Button>
-                </div>
+                </div>}
+
             </header>
             <Modal open={importModal}>
                 <Box className="import-modal">
@@ -277,6 +279,7 @@ DashBoardHeader.propTypes = {
     searchString: PropTypes.string,
     setSearchString: PropTypes.func,
     setFilteredPlayersData: PropTypes.func,
+    activeNavItem: PropTypes.string,
 }
 
 export default DashBoardHeader;

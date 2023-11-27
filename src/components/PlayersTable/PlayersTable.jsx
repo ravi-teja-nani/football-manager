@@ -19,6 +19,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { PLAYER_FIELDS } from '../../constants'
 
 const MENU_ITEMS = {
     EDIT: 'edit',
@@ -31,7 +32,7 @@ const getUniqueIdOfPlayer = (imageUrl) => {
 
 const deletePlayer = (data, uniqueId) => {
     const result = data.filter((player) => {
-        const id = getUniqueIdOfPlayer(player['Player Image'])
+        const id = getUniqueIdOfPlayer(player[PLAYER_FIELDS.PLAYER_IMAGE])
         return id !== uniqueId
     })
     return result
@@ -39,20 +40,11 @@ const deletePlayer = (data, uniqueId) => {
 
 const editPlayer = (data, selectedPlayer,  uniqueId) => {
     const updatedData = structuredClone(data)
-    const index = updatedData.findIndex((player) => getUniqueIdOfPlayer(player['Player Image']) === uniqueId)
+    const index = updatedData.findIndex((player) => getUniqueIdOfPlayer(player[PLAYER_FIELDS.PLAYER_IMAGE]) === uniqueId)
     updatedData[index] = {...selectedPlayer, [PLAYER_FIELDS.PLAYER_NAME]: selectedPlayer[PLAYER_FIELDS.PLAYER_NAME].trim()}
     return updatedData
 }
 
-const PLAYER_FIELDS = {
-    PLAYER_NAME: 'Player Name',
-    JERSY_NUMBER: 'Jersey Number',
-    HEIGHT: 'Height',
-    WEIGHT: 'Weight',
-    STARTER: 'Starter',
-    NATIONALITY: 'Nationality',
-    POSITION: 'Position',
-}
 
 const PlayersTable = ({
     filteredPlayersData,
@@ -89,7 +81,7 @@ const PlayersTable = ({
     }
 
     const onConfirmDelete = () => {
-        const playerUniqueId = getUniqueIdOfPlayer(selectedPlayer['Player Image'])
+        const playerUniqueId = getUniqueIdOfPlayer(selectedPlayer[PLAYER_FIELDS.PLAYER_IMAGE])
         setFilteredPlayersData((prevData) => deletePlayer(prevData, playerUniqueId))
         setPlayersData((prevData) => deletePlayer(prevData, playerUniqueId))
         setSelectedPlayer(null)
@@ -97,7 +89,7 @@ const PlayersTable = ({
 
     }
     const onConfirmEdit = () => {
-        const playerUniqueId = getUniqueIdOfPlayer(selectedPlayer['Player Image'])
+        const playerUniqueId = getUniqueIdOfPlayer(selectedPlayer[PLAYER_FIELDS.PLAYER_IMAGE])
         setFilteredPlayersData((prevData) => editPlayer(prevData, selectedPlayer, playerUniqueId))
         setPlayersData((prevData) => editPlayer(prevData, selectedPlayer, playerUniqueId))
         setSelectedPlayer(null)
@@ -122,9 +114,9 @@ const PlayersTable = ({
     }
 
     const isPlayerDataChanged = () => {
-        const playerUniqueId = getUniqueIdOfPlayer(selectedPlayer['Player Image'])
+        const playerUniqueId = getUniqueIdOfPlayer(selectedPlayer[PLAYER_FIELDS.PLAYER_IMAGE])
         const originalData = playersData.find((player) => {
-            return getUniqueIdOfPlayer(player['Player Image']) === playerUniqueId
+            return getUniqueIdOfPlayer(player[PLAYER_FIELDS.PLAYER_IMAGE]) === playerUniqueId
         })
         const isDataChanged = JSON.stringify(selectedPlayer) !== JSON.stringify(originalData)
         return isDataChanged
@@ -141,18 +133,18 @@ const PlayersTable = ({
             return <tr key={i}>
                 <td>
                     <span className="player-name">
-                        <img src={player['Flag Image']} alt='country flag' /><span>{player['Player Name']}</span>
+                        <img src={player[PLAYER_FIELDS.FLAG_IMAGE]} alt='country flag' /><span>{player[PLAYER_FIELDS.PLAYER_NAME]}</span>
                     </span>
                 </td>
-                <td>{player['Jersey Number']}</td>
-                <td>{player['Starter']}</td>
-                <td>{player['Position']}</td>
-                <td>{isNaN(Number(player['Height'])) ? player['Height']: (Number(player['Height'] )/100) + ' m'}</td>
-                <td>{isNaN(Number(player['Weight'])) ? player['Weight']: player['Weight'] + ' kg' }
+                <td>{player[PLAYER_FIELDS.JERSY_NUMBER]}</td>
+                <td>{player[PLAYER_FIELDS.STARTER]}</td>
+                <td>{player[PLAYER_FIELDS.POSITION]}</td>
+                <td>{isNaN(Number(player[PLAYER_FIELDS.HEIGHT])) ? player[PLAYER_FIELDS.HEIGHT]: (Number(player[PLAYER_FIELDS.HEIGHT] )/100) + ' m'}</td>
+                <td>{isNaN(Number(player[PLAYER_FIELDS.WEIGHT])) ? player[PLAYER_FIELDS.WEIGHT]: player[PLAYER_FIELDS.WEIGHT] + ' kg' }
                 </td>
-                <td>{player['Nationality']}</td>
-                <td>{player['Appearances']}</td>
-                <td>{player['Minutes Played']}</td>
+                <td>{player[PLAYER_FIELDS.NATIONALITY]}</td>
+                <td>{player[PLAYER_FIELDS.APPEARANCES]}</td>
+                <td>{player[PLAYER_FIELDS.MINUTES_PLAYED]}</td>
                 <td>
                     <IconButton
                         aria-label="more"
