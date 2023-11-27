@@ -43,6 +43,7 @@ p {
   padding: 28px 0px;
   align-items: center;
   background-color: #111111;
+  height: 100vh;
   .nav {
     display: flex;
     flex-direction: column;
@@ -133,7 +134,7 @@ p {
 
 .players-table-root {
   background-color: #2d2d2d;
-  height: 620px;
+  height: 77vh;
   border-radius: 8px;
   padding: 20px;
   overflow-y: scroll;
@@ -407,5 +408,110 @@ p {
   background-color: #d23131 !important;
   &:hover {
     background-color: var(--primary-orange) !important;
+  }
+}
+
+.player-edit-modal {
+  width: 480px;
+  .edit-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    .edit-button-wrapper {
+      &.MuiButton-text {
+        color: #707070;
+      }
+      &.MuiButton-contained{
+        background-color: var(--primary-yellow) !important;
+        &:hover {
+          background-color: var(--primary-orange) !important;
+        }
+      }
+
+    }
+  }
+  .label {
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 4px;
+  }
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    .column {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .input-wrapper {
+    .MuiInputBase-root {
+      border: 1px solid #494949;
+      border-radius: 8px;
+      color: #cbcbcb;
+      height: 44px;
+    }
+    &.player-input {
+      margin-right: 56px;
+      .MuiInputBase-root {
+        width: 274px;
+      }
+    }
+    &.jersy-input {
+      .MuiInputBase-root {
+        width: 142px;
+      }
+    }
+    &.height-input {
+      margin-right: 25px;
+      .MuiInputBase-root {
+        width: 208px;
+      }
+    }
+    &.weight-input {
+      .MuiInputBase-root {
+        width: 208px;
+      }
+    }
+    &.nationality-input {
+      .MuiInputBase-root {
+        width: 30rem;
+        
+      }
+      svg {
+        color: #f8f8f8;
+      }
+    }
+    &.position-input {
+      .MuiInputBase-root {
+        width: 30rem;
+        
+      }
+      svg {
+        color: #f8f8f8;
+      }
+    }
+  }
+  .MuiFormGroup-root {
+    flex-direction: row;
+    .Mui-checked{
+      color: var(--primary-yellow) !important;
+    }
+    .MuiRadio-root {
+      color: #494949;
+    }
+  }
+}
+
+.MuiPaper-root {
+  background-color: #2d2d2d !important;
+  .MuiMenuItem-root {
+    color: #cbcbcb;
+
   }
 }

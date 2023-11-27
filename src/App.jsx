@@ -44,6 +44,7 @@ function App() {
           setFilteredPlayersData={setFilteredPlayersData}
           setPlayersData={setPlayersData}
           searchString={searchString}
+          playersData={playersData}
         />
       </div>
 
