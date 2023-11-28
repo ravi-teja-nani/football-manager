@@ -522,16 +522,146 @@ p {
     background-color: #222222;
     width: 322px;
     height: 541px;
-    .hr-line {
+    .jersy-number-shadow {
+      font-family: Poppins;
+      font-size: 109px;
+      font-weight: 600;
+      line-height: 62px;
+      letter-spacing: 0px;
+      text-align: left;
+      color: #3a3731;
       position: relative;
-      top: 377px;
-      width: 274px;
-      border: 0.5px solid #494949;
-      height: 5px;
-      border-bottom: none;
-      border-right: none;
-      border-left: none;
+      top: 51px;
+      left: 36px;
     }
+    .jersy-number {
+      font-family: Poppins;
+      font-size: 41px;
+      font-weight: 600;
+      line-height: 62px;
+      letter-spacing: 0px;
+      text-align: left;
+      color: var(--primary-yellow);
+      position: relative;
+      top: 22px;
+      left: 6px;
+    }
+    .player-image {
+      img {
+        height: 258px;
+        position: relative;
+        left: 24px;
+        top: -72px;
+      }
+      .image-overlay {
+        height: 258px;
+        width: 175px;
+        background: linear-gradient(180deg, rgba(34, 34, 34, 0) 0%, rgba(34, 34, 34, 0.38) 60.94%, #222222 100%);
+        position: relative;
+        top: -326px;
+        right: -77px;
+      }
+    }
+    .name-position {
+      position: relative;
+      top: -386px;
+      right: -23px;
+
+      .name {
+        font-family: Poppins;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 36px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #ffffff;
+      }
+      .posistion {
+        font-family: Poppins;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 27px;
+        letter-spacing: 0px;
+        text-align: left;
+        color: var(--primary-yellow);
+      }
+    }
+    .player-physical-properties {
+      position: relative;
+      top: -366px;
+      right: -23px;
+      display: flex;
+      .column-data {
+        margin-right: 38px;
+        .heading {
+          font-size: 12px;
+          font-weight: 400;
+          line-height: 18px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: #cbcbcb;
+          margin: 0;
+        }
+        .data {
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 21px;
+          letter-spacing: 0em;
+          text-align: left;
+          color: #f8f8f8;
+          margin-top: 3px;
+          display: flex;
+          align-items: center;
+          img {
+            width: 16px;
+            margin-right: 3px;
+          }
+        }
+      }
+    }
+    .player-stats {
+      position: relative;
+      top: -323px;
+      right: -23px;
+      .row {
+        display: flex;
+        &.row-01 {
+          margin-bottom: 12px;
+        }
+        .column {
+          margin-right: 66px;
+          .value {
+            font-family: Poppins;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 36px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: var(--primary-yellow);
+          }
+          .heading {
+            font-family: Poppins;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+            letter-spacing: 0em;
+            text-align: left;
+            color: #cbcbcb;
+          }
+        }
+      }
+    }
+      .hr-line-data {
+        position: relative;
+        top: -332px;
+        width: 274px;
+        border: 0.5px solid #494949;
+        height: 5px;
+        border-bottom: none;
+        border-right: none;
+        border-left: none;
+      }
+
   }
   .alert-message {
     position: absolute;

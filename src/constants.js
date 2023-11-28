@@ -15,4 +15,6 @@ export const PLAYER_FIELDS = {
     APPEARANCES: 'Appearances',
     MINUTES_PLAYED: 'Minutes Played',
     FLAG_IMAGE: 'Flag Image',
+    SAVES: 'Saves',
+    CLEAN_SHEETS: 'Clean Sheets',
 }
