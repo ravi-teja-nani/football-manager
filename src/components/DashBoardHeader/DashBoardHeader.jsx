@@ -198,7 +198,17 @@ const DashBoardHeader = ({ playersData, setPlayersData, setPlayerTableImport, se
                             ),
                         }}
                         value={searchString}
-                        onChange={(e) => setSearchString(e.target.value)}
+                        onKeyDown={
+                            (e) => {
+                                if (e.key === "Escape") {
+                                    setSearchString('')
+                                    return
+                                }
+                            }
+                        }
+                        onChange={(e) => {
+                            setSearchString(e.target.value)
+                        }}
                     />
                     <Button
                         className="button-wrapper primary-button-wrapper"
