@@ -17,4 +17,6 @@ export const PLAYER_FIELDS = {
     FLAG_IMAGE: 'Flag Image',
     SAVES: 'Saves',
     CLEAN_SHEETS: 'Clean Sheets',
+    GOALS: 'Goals',
+    ASSISTS: 'Assists',
 }

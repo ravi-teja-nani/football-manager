@@ -197,7 +197,7 @@ const FormationOverView = ({ playersData }) => {
                 <hr className='hr-line-data' />
                 <div className='player-stats'>
                     <div className='row'>
-                        <div className='column'>
+                        <div className='column column-1'>
                             <p className='value'>{selectedPlayer[PLAYER_FIELDS.APPEARANCES]}</p>
                             <p className='heading'>Appearances</p>
                         </div>
@@ -207,13 +207,13 @@ const FormationOverView = ({ playersData }) => {
                         </div>
                     </div>
                     <div className='row'>
-                        <div className='column'>
-                            <p className='value'>{selectedPlayer[PLAYER_FIELDS.CLEAN_SHEETS]}</p>
-                            <p className='heading'>Clean sheets</p>
+                        <div className='column column-1'>
+                            <p className='value'>{selectedPlayer[PLAYER_FIELDS.POSITION] === POSITIONS.GOAL_KEEPER ? selectedPlayer[PLAYER_FIELDS.CLEAN_SHEETS]: selectedPlayer[PLAYER_FIELDS.GOALS]}</p>
+                            <p className='heading'>{selectedPlayer[PLAYER_FIELDS.POSITION] === POSITIONS.GOAL_KEEPER ? 'Clean sheets': 'Goals'}</p>
                         </div>
                         <div className='column'>
-                            <p className='value'>{selectedPlayer[PLAYER_FIELDS.SAVES]}</p>
-                            <p className='heading'>Saves</p>
+                            <p className='value'>{selectedPlayer[PLAYER_FIELDS.POSITION] === POSITIONS.GOAL_KEEPER ? selectedPlayer[PLAYER_FIELDS.SAVES] : selectedPlayer[PLAYER_FIELDS.ASSISTS]}</p>
+                            <p className='heading'>{selectedPlayer[PLAYER_FIELDS.POSITION] === POSITIONS.GOAL_KEEPER ? 'Saves': 'Assists'}</p>
                         </div>
                     </div>
                 </div>
